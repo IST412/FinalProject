@@ -5,6 +5,9 @@
  */
 package compilerprogram;
 
+import java.awt.Dimension;
+import javax.swing.JFrame;
+
 /**
  *
  * @author h_laessig
@@ -17,8 +20,11 @@ public class CompilerProgram
      */
     public static void main(String[] args) 
     {
-        MainFrame main = new MainFrame();
-        main.setVisible(true);
+        JFrame newFrame = new JFrame();
+        newFrame.setVisible(true);
+        LoginPanel theLoginPanel = new LoginPanel(newFrame);
+        newFrame.add(theLoginPanel);
+        newFrame.setSize(500, 500);
     }
     
 }
