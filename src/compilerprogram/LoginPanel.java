@@ -19,7 +19,8 @@ public class LoginPanel extends JPanel implements ActionListener {
     private final JFrame frame;
     public JButton submit;
     public JLabel username, password, success, failure;
-    public JTextField usernameInsert, passwordInsert;
+    public JTextField usernameInsert;
+    public JPasswordField passwordInsert;
     public String userName = "";
     public String passWord = "";
     int counter = 0;
@@ -46,7 +47,7 @@ public class LoginPanel extends JPanel implements ActionListener {
         password.setBounds(100,200,100,50);
         add(password);
         
-        passwordInsert = new JTextField();
+        passwordInsert = new JPasswordField();
         passwordInsert.setBounds(200, 200, 100, 50);
         add(passwordInsert);
         
