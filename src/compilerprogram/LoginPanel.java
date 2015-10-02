@@ -97,6 +97,10 @@ public class LoginPanel extends JPanel implements ActionListener {
                     if((usernameInsert.getText().equals(userName)) && (passwordInsert.getText().equals(passWord)))
                     {
                         success.setVisible(true);
+                        MainFrame newMainFrame = new MainFrame();
+                        this.setVisible(false);
+                        frame.setVisible(false);
+                        newMainFrame.setVisible(true);
                     }
                     
                     else
