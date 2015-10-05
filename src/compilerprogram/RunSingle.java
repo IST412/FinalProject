@@ -52,6 +52,7 @@ public class RunSingle
                 }
                 
                 System.err.println("next one");
+                outputResults(results);
             }
         
         
@@ -62,5 +63,12 @@ public class RunSingle
         } 
 
         return results;
+    }
+    
+    public void outputResults(String results) throws IOException {
+        //output to a text file
+        PrintWriter out = new PrintWriter(new FileWriter ("output", true));
+        out.print(results);
+        out.close();
     }
 }

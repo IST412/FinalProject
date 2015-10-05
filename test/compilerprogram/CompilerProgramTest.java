@@ -45,8 +45,6 @@ public class CompilerProgramTest {
         System.out.println("main");
         String[] args = null;
         CompilerProgram.main(args);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

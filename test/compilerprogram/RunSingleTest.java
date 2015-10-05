@@ -18,6 +18,9 @@ import static org.junit.Assert.*;
  */
 public class RunSingleTest {
     
+    String fileName = "";
+    String expResult = "";
+    
     public RunSingleTest() {
     }
     
@@ -31,6 +34,8 @@ public class RunSingleTest {
     
     @Before
     public void setUp() {
+        fileName = "/Users/Mazayan/NetBeansProjects/FinalProject/students/fisher/ArrayLoops.java";
+        //expResult = 
     }
     
     @After
@@ -43,13 +48,10 @@ public class RunSingleTest {
     @Test
     public void testGetProcessOutput() {
         System.out.println("getProcessOutput");
-        String fileName = "";
         RunSingle instance = new RunSingle();
         String expResult = "";
         String result = instance.getProcessOutput(fileName);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

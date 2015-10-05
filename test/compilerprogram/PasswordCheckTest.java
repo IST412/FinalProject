@@ -46,8 +46,6 @@ public class PasswordCheckTest {
         String password = "";
         PasswordCheck instance = new PasswordCheck();
         instance.testpasswordLength(password);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -72,8 +70,7 @@ public class PasswordCheckTest {
         String password = "";
         PasswordCheck instance = new PasswordCheck();
         instance.testPasswordNumbers(password);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -85,8 +82,7 @@ public class PasswordCheckTest {
         String password = "";
         PasswordCheck instance = new PasswordCheck();
         instance.testPasswordCharacters(password);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
     
 }

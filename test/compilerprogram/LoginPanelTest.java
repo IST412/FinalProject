@@ -6,6 +6,7 @@
 package compilerprogram;
 
 import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,6 +19,9 @@ import static org.junit.Assert.*;
  * @author Mazayan
  */
 public class LoginPanelTest {
+    
+    String file = "";
+    JFrame frame;
     
     public LoginPanelTest() {
     }
@@ -32,6 +36,7 @@ public class LoginPanelTest {
     
     @Before
     public void setUp() {
+        this.file = "loginCheck.txt";
     }
     
     @After
@@ -44,10 +49,8 @@ public class LoginPanelTest {
     @Test
     public void testFileWriter() throws Exception {
         System.out.println("fileWriter");
-        LoginPanel instance = null;
+        LoginPanel instance = new LoginPanel(frame);
         instance.fileWriter();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -56,11 +59,8 @@ public class LoginPanelTest {
     @Test
     public void testFileReader() {
         System.out.println("fileReader");
-        String file = "";
-        LoginPanel instance = null;
+        LoginPanel instance = new LoginPanel(frame);
         instance.fileReader(file);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -70,10 +70,8 @@ public class LoginPanelTest {
     public void testActionPerformed() {
         System.out.println("actionPerformed");
         ActionEvent e = null;
-        LoginPanel instance = null;
+        LoginPanel instance = new LoginPanel(frame);;
         instance.actionPerformed(e);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

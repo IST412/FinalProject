@@ -18,6 +18,8 @@ import static org.junit.Assert.*;
  */
 public class CompilerTest {
     
+    String [] fileNames = new String[1];
+    
     public CompilerTest() {
     }
     
@@ -31,6 +33,7 @@ public class CompilerTest {
     
     @Before
     public void setUp() {
+        this.fileNames[0] = "ArrayLoops.java";
     }
     
     @After
@@ -43,13 +46,10 @@ public class CompilerTest {
     @Test
     public void testTestCompile() {
         System.out.println("testCompile");
-        String fileName = "";
         Compiler instance = new Compiler();
-        int expResult = 0;
-        int result = instance.testCompile(fileName);
+        int expResult = 1;
+        int result = instance.testCompile(fileNames[0]);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
