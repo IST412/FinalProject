@@ -3,11 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/Mazayan/NetBeansProjects/FinalProject/test/compilerprogram/CompilerProgramTest.java</file>
-            <file>file:/Users/Mazayan/NetBeansProjects/FinalProject/src/compilerprogram/PasswordCheck.java</file>
-            <file>file:/Users/Mazayan/NetBeansProjects/FinalProject/src/compilerprogram/Compiler.java</file>
-            <file>file:/Users/Mazayan/NetBeansProjects/FinalProject/test/compilerprogram/LoginPanelTest.java</file>
-            <file>file:/Users/Mazayan/NetBeansProjects/FinalProject/test/compilerprogram/CompilerTest.java</file>
+            <file>file:/Users/Mazayan/NetBeansProjects/FinalProject/src/compilerprogram/CompilerProgram.java</file>
+            <file>file:/Users/Mazayan/NetBeansProjects/FinalProject/src/compilerprogram/RunSingle.java</file>
+            <file>file:/Users/Mazayan/NetBeansProjects/FinalProject/src/compilerprogram/MainFrame.java</file>
         </group>
     </open-files>
 </project-private>
