@@ -48,7 +48,6 @@ public class MainFrame extends javax.swing.JFrame
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         jTabbedPane2 = new javax.swing.JTabbedPane();
@@ -212,8 +211,9 @@ public class MainFrame extends javax.swing.JFrame
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        displayResults.setColumns(20);
-        displayResults.setRows(5);
+       // displayResults.setSize(10, 10);
+       // displayResults.setColumns(1);
+       // displayResults.setRows(1);
         jScrollPane1.setViewportView(displayResults);
 
         compileSingle.setText("Compile");
