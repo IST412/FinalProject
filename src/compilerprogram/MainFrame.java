@@ -27,7 +27,7 @@ public class MainFrame extends javax.swing.JFrame
     ArrayList<String> batchOutput;
     ArrayList<String> studentNames;
     ArrayList<String> compileResults;
-    ArrayList<String> inputs = new ArrayList<String>();
+    ArrayList<String> inputs = new ArrayList<>();
     
     JFileChooser chooser;
     String chooserTitle;
@@ -456,7 +456,7 @@ public class MainFrame extends javax.swing.JFrame
                     .addComponent(RunOutputLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(batchLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                     .addComponent(jScrollPane2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(batchLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
