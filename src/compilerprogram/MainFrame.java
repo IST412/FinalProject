@@ -577,6 +577,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void CompileBatchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CompileBatchActionPerformed
 
+        programName = programNameField.getText();
+        
         if (folderName == null || programName == null) {
             batchCompileText.setText("Required fields missing");
         } else {
