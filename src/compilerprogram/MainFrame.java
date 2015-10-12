@@ -123,7 +123,8 @@ public class MainFrame extends javax.swing.JFrame
 
         selectInputsSingleLabel.setText("Select which inputs the program uses (doesnt work)");
 
-        programTextField.setText("ArrayLoops");
+        //programTextField.setText("ArrayLoops");
+        programTextField.setToolTipText("Example: ArrayLoops");
 
         folderStudentSubdirectoriesLabel.setText("Select folder containing student subdirectories");
 
@@ -314,7 +315,8 @@ public class MainFrame extends javax.swing.JFrame
         batchScannerCheck.setSelected(true);
         batchScannerCheck.setText("Scanner Inputs");
 
-        programNameField.setText("ArrayLoops");
+        //programNameField.setText("ArrayLoops");
+        programTextField.setToolTipText("Example: ArrayLoops");
 
         selectBatchFolderLabel.setText("Select folder containing batch folders to process");
 
@@ -667,6 +669,7 @@ public class MainFrame extends javax.swing.JFrame
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Choose a file");
         fileChooser.setCurrentDirectory(new java.io.File("."));
+        
         singlePanel.add(fileChooser);
         fileChooser.setVisible(true);
         
