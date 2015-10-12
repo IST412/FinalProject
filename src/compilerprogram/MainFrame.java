@@ -17,8 +17,8 @@ import javax.swing.JFileChooser;
  *
  * @author h_laessig
  */
-public class MainFrame extends javax.swing.JFrame 
-{
+public class MainFrame extends javax.swing.JFrame {
+
     String fileName;
     String programName;
     String folderName;
@@ -28,15 +28,14 @@ public class MainFrame extends javax.swing.JFrame
     ArrayList<String> studentNames;
     ArrayList<String> compileResults;
     ArrayList<String> inputs = new ArrayList<>();
-    
+
     JFileChooser chooser;
     String chooserTitle;
-    
+
     RunBatch batch = new RunBatch();
     RunSingle single = new RunSingle();
-    
-    public MainFrame() 
-    {
+
+    public MainFrame() {
         initComponents();
     }
 
@@ -132,89 +131,89 @@ public class MainFrame extends javax.swing.JFrame
 
         programNameLabel.setText("Enter name of program to be ran");
 
-        studentCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Choose folder first" }));
+        studentCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"Choose folder first"}));
 
         selectStudentLabel.setText("Select student you would like to run program for");
 
         javax.swing.GroupLayout singleUpperPanelLayout = new javax.swing.GroupLayout(singleUpperPanel);
         singleUpperPanel.setLayout(singleUpperPanelLayout);
         singleUpperPanelLayout.setHorizontalGroup(
-            singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, singleUpperPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(singleUpperPanelLayout.createSequentialGroup()
-                        .addComponent(selectFile, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addGroup(singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(folderStudentSubdirectoriesLabel)
-                            .addComponent(singleDirectoryField, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, singleUpperPanelLayout.createSequentialGroup()
-                        .addGroup(singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(singleUpperPanelLayout.createSequentialGroup()
-                                .addComponent(selectTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDirectory, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtFileInputsLabel)))
-                            .addGroup(singleUpperPanelLayout.createSequentialGroup()
-                                .addGap(69, 69, 69)
-                                .addComponent(singleArgsCheck)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(singleScannerCheck))
-                            .addGroup(singleUpperPanelLayout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(selectInputsSingleLabel)))
-                        .addGroup(singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(singleUpperPanelLayout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addGroup(singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(programTextField)
-                                    .addComponent(studentCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(singleUpperPanelLayout.createSequentialGroup()
-                                        .addComponent(programNameLabel)
-                                        .addGap(0, 0, Short.MAX_VALUE))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, singleUpperPanelLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(selectStudentLabel)
-                                .addGap(15, 15, 15)))))
-                .addGap(91, 91, 91))
+                singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, singleUpperPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(singleUpperPanelLayout.createSequentialGroup()
+                                        .addComponent(selectFile, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(folderStudentSubdirectoriesLabel)
+                                                .addComponent(singleDirectoryField, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, singleUpperPanelLayout.createSequentialGroup()
+                                        .addGroup(singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(singleUpperPanelLayout.createSequentialGroup()
+                                                        .addComponent(selectTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(18, 18, 18)
+                                                        .addGroup(singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addComponent(txtDirectory, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(txtFileInputsLabel)))
+                                                .addGroup(singleUpperPanelLayout.createSequentialGroup()
+                                                        .addGap(69, 69, 69)
+                                                        .addComponent(singleArgsCheck)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(singleScannerCheck))
+                                                .addGroup(singleUpperPanelLayout.createSequentialGroup()
+                                                        .addGap(26, 26, 26)
+                                                        .addComponent(selectInputsSingleLabel)))
+                                        .addGroup(singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(singleUpperPanelLayout.createSequentialGroup()
+                                                        .addGap(32, 32, 32)
+                                                        .addGroup(singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addComponent(programTextField)
+                                                                .addComponent(studentCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addGroup(singleUpperPanelLayout.createSequentialGroup()
+                                                                        .addComponent(programNameLabel)
+                                                                        .addGap(0, 0, Short.MAX_VALUE))))
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, singleUpperPanelLayout.createSequentialGroup()
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(selectStudentLabel)
+                                                        .addGap(15, 15, 15)))))
+                        .addGap(91, 91, 91))
         );
         singleUpperPanelLayout.setVerticalGroup(
-            singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(singleUpperPanelLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(folderStudentSubdirectoriesLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(selectFile, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(singleDirectoryField, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFileInputsLabel)
-                    .addComponent(programNameLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDirectory, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(programTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(selectTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(selectInputsSingleLabel)
-                    .addComponent(selectStudentLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(singleArgsCheck)
-                    .addComponent(singleScannerCheck)
-                    .addComponent(studentCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23))
+                singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(singleUpperPanelLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(folderStudentSubdirectoriesLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(selectFile, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(singleDirectoryField, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtFileInputsLabel)
+                                .addComponent(programNameLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtDirectory, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(programTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(selectTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(35, 35, 35)
+                        .addGroup(singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(selectInputsSingleLabel)
+                                .addComponent(selectStudentLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(singleUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(singleArgsCheck)
+                                .addComponent(singleScannerCheck)
+                                .addComponent(studentCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(23, 23, 23))
         );
 
         singleLowerPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-       // displayResults.setSize(10, 10);
-       // displayResults.setColumns(1);
-       // displayResults.setRows(1);
+        // displayResults.setSize(10, 10);
+        // displayResults.setColumns(1);
+        // displayResults.setRows(1);
         jScrollPane1.setViewportView(displayResults);
 
         compileSingle.setText("Compile");
@@ -236,54 +235,54 @@ public class MainFrame extends javax.swing.JFrame
         javax.swing.GroupLayout singleLowerPanelLayout = new javax.swing.GroupLayout(singleLowerPanel);
         singleLowerPanel.setLayout(singleLowerPanelLayout);
         singleLowerPanelLayout.setHorizontalGroup(
-            singleLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, singleLowerPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 777, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
-            .addGroup(singleLowerPanelLayout.createSequentialGroup()
-                .addGap(187, 187, 187)
-                .addComponent(compileSingle, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(runSingle, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(233, 233, 233))
-            .addGroup(singleLowerPanelLayout.createSequentialGroup()
-                .addGap(408, 408, 408)
-                .addComponent(OutputsLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                singleLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, singleLowerPanelLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 777, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50))
+                .addGroup(singleLowerPanelLayout.createSequentialGroup()
+                        .addGap(187, 187, 187)
+                        .addComponent(compileSingle, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(runSingle, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(233, 233, 233))
+                .addGroup(singleLowerPanelLayout.createSequentialGroup()
+                        .addGap(408, 408, 408)
+                        .addComponent(OutputsLabel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         singleLowerPanelLayout.setVerticalGroup(
-            singleLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(singleLowerPanelLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(OutputsLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addGroup(singleLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(compileSingle, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(runSingle, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(49, Short.MAX_VALUE))
+                singleLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(singleLowerPanelLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(OutputsLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addGroup(singleLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(compileSingle, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(runSingle, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(49, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout singlePanelLayout = new javax.swing.GroupLayout(singlePanel);
         singlePanel.setLayout(singlePanelLayout);
         singlePanelLayout.setHorizontalGroup(
-            singlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(singlePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(singlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(singleUpperPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(singleLowerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                singlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(singlePanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(singlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(singleUpperPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(singleLowerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
         );
         singlePanelLayout.setVerticalGroup(
-            singlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(singlePanelLayout.createSequentialGroup()
-                .addComponent(singleUpperPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(singleLowerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                singlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(singlePanelLayout.createSequentialGroup()
+                        .addComponent(singleUpperPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(singleLowerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Single", singlePanel);
@@ -334,67 +333,67 @@ public class MainFrame extends javax.swing.JFrame
         javax.swing.GroupLayout batchUpperPanelLayout = new javax.swing.GroupLayout(batchUpperPanel);
         batchUpperPanel.setLayout(batchUpperPanelLayout);
         batchUpperPanelLayout.setHorizontalGroup(
-            batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(batchUpperPanelLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(folderList, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inputsSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(batchUpperPanelLayout.createSequentialGroup()
+                batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(batchUpperPanelLayout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(folderList, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(inputsSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(batchUpperPanelLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(inputTextFileLabel))
-                            .addGroup(batchUpperPanelLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(inputsField, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(26, 26, 26)
-                        .addComponent(programNameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(programNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(javaProgramLabel))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(batchUpperPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(selectBatchFolderLabel)
-                            .addComponent(directoryField, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(batchUpperPanelLayout.createSequentialGroup()
-                                    .addComponent(batchArgsCheck)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(batchScannerCheck))
-                                .addComponent(selectInputsBatchLabel)))
-                        .addContainerGap(16, Short.MAX_VALUE))))
+                                        .addGroup(batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(batchUpperPanelLayout.createSequentialGroup()
+                                                        .addGap(12, 12, 12)
+                                                        .addComponent(inputTextFileLabel))
+                                                .addGroup(batchUpperPanelLayout.createSequentialGroup()
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(inputsField, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(26, 26, 26)
+                                        .addComponent(programNameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(programNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(javaProgramLabel))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(batchUpperPanelLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(selectBatchFolderLabel)
+                                                .addComponent(directoryField, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addGroup(batchUpperPanelLayout.createSequentialGroup()
+                                                                .addComponent(batchArgsCheck)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(batchScannerCheck))
+                                                        .addComponent(selectInputsBatchLabel)))
+                                        .addContainerGap(16, Short.MAX_VALUE))))
         );
         batchUpperPanelLayout.setVerticalGroup(
-            batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(batchUpperPanelLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(selectBatchFolderLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(folderList, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(directoryField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addGroup(batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputTextFileLabel)
-                    .addComponent(javaProgramLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputsSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inputsField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(programNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(programNameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addComponent(selectInputsBatchLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(batchArgsCheck)
-                    .addComponent(batchScannerCheck))
-                .addContainerGap())
+                batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(batchUpperPanelLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(selectBatchFolderLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(folderList, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(directoryField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addGroup(batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(inputTextFileLabel)
+                                .addComponent(javaProgramLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(inputsSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(inputsField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(programNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(programNameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addComponent(selectInputsBatchLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(batchArgsCheck)
+                                .addComponent(batchScannerCheck))
+                        .addContainerGap())
         );
 
         batchLowerPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -431,61 +430,61 @@ public class MainFrame extends javax.swing.JFrame
         javax.swing.GroupLayout batchLowerPanelLayout = new javax.swing.GroupLayout(batchLowerPanel);
         batchLowerPanel.setLayout(batchLowerPanelLayout);
         batchLowerPanelLayout.setHorizontalGroup(
-            batchLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(batchLowerPanelLayout.createSequentialGroup()
-                .addGap(151, 151, 151)
-                .addComponent(CompileBatch, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(runBatch, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(144, 144, 144))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, batchLowerPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(batchLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CompileOutputLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addGroup(batchLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(RunOutputLabel)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                batchLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(batchLowerPanelLayout.createSequentialGroup()
+                        .addGap(151, 151, 151)
+                        .addComponent(CompileBatch, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(runBatch, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(144, 144, 144))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, batchLowerPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(batchLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CompileOutputLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                        .addGroup(batchLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(RunOutputLabel)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
         );
         batchLowerPanelLayout.setVerticalGroup(
-            batchLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(batchLowerPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(batchLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CompileOutputLabel)
-                    .addComponent(RunOutputLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(batchLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(batchLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(runBatch, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CompileBatch, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                batchLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(batchLowerPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(batchLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(CompileOutputLabel)
+                                .addComponent(RunOutputLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(batchLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                                .addComponent(jScrollPane2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(batchLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(runBatch, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CompileBatch, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
         );
 
         javax.swing.GroupLayout batchPanelLayout = new javax.swing.GroupLayout(batchPanel);
         batchPanel.setLayout(batchPanelLayout);
         batchPanelLayout.setHorizontalGroup(
-            batchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(batchPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(batchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(batchLowerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(batchUpperPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                batchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(batchPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(batchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(batchLowerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(batchUpperPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         batchPanelLayout.setVerticalGroup(
-            batchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(batchPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(batchUpperPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(batchLowerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                batchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(batchPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(batchUpperPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(batchLowerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
         );
 
         jTabbedPane2.addTab("Batch", batchPanel);
@@ -493,16 +492,16 @@ public class MainFrame extends javax.swing.JFrame
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane2))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jTabbedPane2))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane2))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jTabbedPane2))
         );
 
         pack();
@@ -510,219 +509,212 @@ public class MainFrame extends javax.swing.JFrame
 
     private void selectFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectFileActionPerformed
         //Folder chooser
-        chooser = new JFileChooser(); 
+        chooser = new JFileChooser();
         chooser.setCurrentDirectory(new java.io.File("."));
         chooser.setDialogTitle(chooserTitle);
         chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         chooser.setAcceptAllFileFilterUsed(false);
-        
-        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) 
-        { 
+
+        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION && chooser.getSelectedFile() != null) {
             folderName = (chooser.getSelectedFile().toString());
             singleDirectoryField.setText(folderName);
-        }
-        
-        else 
-        {
+
+            //Get list of students in folder
+            studentNames = batch.getFolders(folderName);
+            studentCombo.removeAllItems();
+
+            for (int i = 0; i < studentNames.size(); i++) {
+                studentCombo.addItem(studentNames.get(i));
+            }
+        } else {
+            folderName = "";
             singleDirectoryField.setText("No Selection");
         }
-        
-        //Get list of students in folder
-        studentNames = batch.getFolders(folderName);
-        studentCombo.removeAllItems();
-        
-        for(int i = 0; i < studentNames.size(); i++)
-        {
-            studentCombo.addItem(studentNames.get(i));
-        }   
+
     }//GEN-LAST:event_selectFileActionPerformed
 
     private void compileSingleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compileSingleActionPerformed
-        
+
         fileName = programTextField.getText();
-        int didCompile = single.singleCompile(fileName);
-        
-        if(didCompile == 1)
-        {
-            displayResults.setText("Compiled Succesfully");
+        int didCompile = 0;
+        if (!fileName.isEmpty()) {
+            didCompile = single.singleCompile(fileName);
         }
-        
-        else
-        {
+
+        if (didCompile == 1) {
+            displayResults.setText("Compiled Succesfully");
+        } else {
             displayResults.setText("File Failed to compile");
         }
-        
+
     }//GEN-LAST:event_compileSingleActionPerformed
 
     private void runSingleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runSingleActionPerformed
-        
+
         studentName = studentCombo.getSelectedItem().toString();
-        String results = single.getProcessOutput(folderName, fileName, studentName, inputs);
-        displayResults.setText(results);
-        
+
+        if (folderName == null || fileName == null || studentName == null) {
+            displayResults.setText("Missing required field");
+        } else {
+            String results = single.getProcessOutput(folderName, fileName, studentName, inputs);
+            displayResults.setText(results);
+        }
+
     }//GEN-LAST:event_runSingleActionPerformed
 
     private void runBatchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runBatchActionPerformed
-       
-        //Run batch run
-       batchOutput = batch.getBatchOutput(inputs, folderName, programName);
-       batchRunText.setText(null);
-       
-       for(int i = 0; i < batchOutput.size(); i++)
-       {
-           batchRunText.append(studentNames.get(i) + "\n" + batchOutput.get(i) + "\n\n");
-       }
-        
+
+        if (folderName == null || programName == null) {
+            batchRunText.setText("Required fields missing");
+        } else {
+            //Run batch run
+            batchOutput = batch.getBatchOutput(inputs, folderName, programName);
+            for (int i = 0; i < batchOutput.size(); i++) {
+                batchRunText.append(studentNames.get(i) + "\n" + batchOutput.get(i) + "\n\n");
+            }
+        }
+
     }//GEN-LAST:event_runBatchActionPerformed
 
     private void CompileBatchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CompileBatchActionPerformed
-        
-        //Run batch compile
-        compileResults = batch.batchCompile(folderName, programName);
-        batchCompileText.setText(null);
-        
-        for(int i = 0; i < compileResults.size(); i++)
-        {
-            batchCompileText.append(compileResults.get(i) + "\n");
+
+        if (folderName == null || programName == null) {
+            batchCompileText.setText("Required fields missing");
+        } else {
+            //Run batch compile
+            compileResults = batch.batchCompile(folderName, programName);
+
+            for (int i = 0; i < compileResults.size(); i++) {
+                batchCompileText.append(compileResults.get(i) + "\n");
+            }
         }
-        
+
     }//GEN-LAST:event_CompileBatchActionPerformed
 
     private void folderListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_folderListActionPerformed
-        
+
         //Folder chooser
-        chooser = new JFileChooser(); 
+        chooser = new JFileChooser();
         chooser.setCurrentDirectory(new java.io.File("."));
         chooser.setDialogTitle(chooserTitle);
         chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         chooser.setAcceptAllFileFilterUsed(false);
-        
-        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) 
-        { 
+
+        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION && chooser.getSelectedFile() != null) {
             folderName = (chooser.getSelectedFile().toString());
             directoryField.setText(folderName);
-        }
-        
-        else 
-        {
+
+            //Get list of students in folder
+            studentNames = batch.getFolders(folderName);
+            int numberOfStudents = studentNames.size();
+        } else {
             directoryField.setText("No Selection");
+            folderName = "";
         }
-        
-        //Get list of students in folder
-        studentNames = batch.getFolders(folderName);
-        int numberOfStudents = studentNames.size();
-        
+
     }//GEN-LAST:event_folderListActionPerformed
 
     private void selectTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectTxtActionPerformed
-        
+
         //Display file chooser for user to select inputs.txt
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setCurrentDirectory(new java.io.File("."));
         fileChooser.setDialogTitle("Choose a file");
         singlePanel.add(fileChooser);
         fileChooser.setVisible(true);
-        
+
         int returnVal = fileChooser.showOpenDialog(this);
-        
-        inputFile = fileChooser.getSelectedFile().toString();
-        txtDirectory.setText(inputFile);
-        
+
+        if (returnVal == JFileChooser.APPROVE_OPTION && fileChooser.getSelectedFile() != null) {
+            inputFile = fileChooser.getSelectedFile().toString();
+            txtDirectory.setText(inputFile);
+        } else {
+            txtDirectory.setText("No Selection");
+            inputFile = "";
+        }
+
         // This will reference one line at a time
         String line = null;
 
-        try 
-        {
+        try {
             FileReader fileReader = new FileReader(inputFile);
 
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-            while((line = bufferedReader.readLine()) != null) 
-            {
+            while ((line = bufferedReader.readLine()) != null) {
                 inputs.add(line);
-            }   
+            }
 
-            bufferedReader.close();         
-        }
-        
-        catch(FileNotFoundException ex) 
-        {
+            bufferedReader.close();
+        } catch (FileNotFoundException ex) {
             System.out.println(
-                "Unable to open file '" + 
-                fileName + "'");                
-        }
-        
-        catch(IOException ex) 
-        {
+                    "Unable to open file '"
+                    + fileName + "'");
+        } catch (IOException ex) {
             System.out.println(
-                "Error reading file '" 
-                + fileName + "'");                  
+                    "Error reading file '"
+                    + fileName + "'");
             // Or we could just do this: 
             // ex.printStackTrace();
-        }  
-        
+        }
+
     }//GEN-LAST:event_selectTxtActionPerformed
 
     private void inputsSelectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputsSelectionActionPerformed
-        
+
         //Display file chooser for user to select inputs.txt
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Choose a file");
         fileChooser.setCurrentDirectory(new java.io.File("."));
-        
+
         singlePanel.add(fileChooser);
         fileChooser.setVisible(true);
-        
+
         int returnVal = fileChooser.showOpenDialog(this);
-        
-        inputFile = fileChooser.getSelectedFile().toString();
-        inputsField.setText(inputFile);
-        
+
+        if (returnVal == JFileChooser.APPROVE_OPTION && fileChooser.getSelectedFile() != null) {
+            inputFile = fileChooser.getSelectedFile().toString();
+            inputsField.setText(inputFile);
+        } else {
+            inputsField.setText("No Selection");
+            inputFile = "";
+        }
+
         // This will reference one line at a time
         String line = null;
 
-        try 
-        {
+        try {
             FileReader fileReader = new FileReader(inputFile);
 
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-            while((line = bufferedReader.readLine()) != null) 
-            {
+            while ((line = bufferedReader.readLine()) != null) {
                 System.out.println(Integer.parseInt(line));
                 inputs.add(line);
-            }   
+            }
 
-            bufferedReader.close();         
-        }
-        
-        catch(FileNotFoundException ex) 
-        {
+            bufferedReader.close();
+        } catch (FileNotFoundException ex) {
             System.out.println(
-                "Unable to open file '" + 
-                fileName + "'");                
-        }
-        
-        catch(IOException ex) 
-        {
+                    "Unable to open file '"
+                    + fileName + "'");
+        } catch (IOException ex) {
             System.out.println(
-                "Error reading file '" 
-                + fileName + "'");                  
+                    "Error reading file '"
+                    + fileName + "'");
             // Or we could just do this: 
             // ex.printStackTrace();
-        }  
+        }
     }//GEN-LAST:event_inputsSelectionActionPerformed
 
     private void programNameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_programNameButtonActionPerformed
-        
-        if(folderName != null)
-        {
+
+        System.out.println("Folder Name: "+folderName);
+        System.out.println("Program Name: "+programName);
+        if (folderName != null || !folderName.equals("") || programName != null) {
             programName = programNameField.getText();
             batchCompileText.setText("Batch will run all programs named: " + programName + "\nContained within the folder: " + folderName);
-        }
-        
-        else
-        {
+        } else {
             batchCompileText.setText("Please select a folder first");
         }
     }//GEN-LAST:event_programNameButtonActionPerformed
