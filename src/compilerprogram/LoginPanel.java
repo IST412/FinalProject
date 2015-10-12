@@ -102,6 +102,7 @@ public class LoginPanel extends JPanel implements ActionListener {
                         this.setVisible(false);
                         frame.setVisible(false);
                         newMainFrame.setVisible(true);
+                        newMainFrame.setLocationRelativeTo(null);
                     }
                     
                     else
