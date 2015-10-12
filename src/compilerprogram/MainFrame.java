@@ -122,7 +122,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         selectInputsSingleLabel.setText("Select which inputs the program uses (doesnt work)");
 
-        //programTextField.setText("ArrayLoops");
         programTextField.setToolTipText("Example: ArrayLoops");
 
         folderStudentSubdirectoriesLabel.setText("Select folder containing student subdirectories");
@@ -314,7 +313,6 @@ public class MainFrame extends javax.swing.JFrame {
         batchScannerCheck.setSelected(true);
         batchScannerCheck.setText("Scanner Inputs");
 
-        //programNameField.setText("ArrayLoops");
         programTextField.setToolTipText("Example: ArrayLoops");
 
         selectBatchFolderLabel.setText("Select folder containing batch folders to process");
