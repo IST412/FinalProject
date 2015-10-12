@@ -616,6 +616,7 @@ public class MainFrame extends javax.swing.JFrame
         
         //Display file chooser for user to select inputs.txt
         JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setCurrentDirectory(new java.io.File("."));
         fileChooser.setDialogTitle("Choose a file");
         singlePanel.add(fileChooser);
         fileChooser.setVisible(true);
@@ -665,6 +666,7 @@ public class MainFrame extends javax.swing.JFrame
         //Display file chooser for user to select inputs.txt
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Choose a file");
+        fileChooser.setCurrentDirectory(new java.io.File("."));
         singlePanel.add(fileChooser);
         fileChooser.setVisible(true);
         
