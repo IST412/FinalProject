@@ -27,6 +27,7 @@ public class CompilerProgram
         newFrame.add(theLoginPanel);
         newFrame.setSize(500, 500);
         newFrame.setLocationRelativeTo(null);
+        newFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
 }
