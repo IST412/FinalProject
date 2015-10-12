@@ -26,6 +26,7 @@ public class CompilerProgram
         LoginPanel theLoginPanel = new LoginPanel(newFrame);
         newFrame.add(theLoginPanel);
         newFrame.setSize(500, 500);
+        newFrame.setLocationRelativeTo(null);
     }
     
 }
