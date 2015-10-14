@@ -5,8 +5,6 @@
  */
 package compilerprogram;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
 import javax.swing.JFrame;
 
 /**
