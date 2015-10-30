@@ -1,36 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package compilerprogram;
 
-import java.io.*;
 import java.util.*;
-import javax.swing.JFileChooser;
+import javax.swing.*;
 
-/**
- *
- * @author h_laessig
- */
+
 public class MainFrame extends javax.swing.JFrame {
 
-    String fileName;
-    String programName;
-    String folderName;
-    String inputFile;
-    String studentName;
-    ArrayList<String> batchOutput;
-    ArrayList<String> studentNames;
-    ArrayList<String> compileResults;
-    ArrayList<String> inputs = new ArrayList<>();
-
+    String fileName, programName, folderName, inputFile, studentName, chooserTitle = "";
+    ArrayList<String> batchOutput, studentNames, compileResults, inputs = new ArrayList<>();
     JFileChooser chooser;
-    String chooserTitle;
-
     RunBatch batch = new RunBatch();
     RunSingle single = new RunSingle();
+    ActionEvents ae = new ActionEvents();
+    public JButton CompileBatch, compileSingle, folderList, inputsSelection;
+    public JButton programNameButton, runBatch, runSingle, selectFile, selectTxt;
+    public JCheckBox batchArgsCheck, batchScannerCheck, singleArgsCheck, singleScannerCheck;
+    public JTextArea batchCompileText, batchRunText, displayResults;
+    public ButtonGroup buttonGroupSingle, buttonGroupBatch;
+    public JTextField directoryField, inputsField, programNameField, programTextField, singleDirectoryField, txtDirectory;
+    public JLabel OutputsLabel, javaProgramLabel, programNameLabel, selectStudentLabel, selectInputsSingleLabel;
+    public JLabel folderStudentSubdirectoriesLabel, txtFileInputsLabel, CompileOutputLabel, RunOutputLabel;
+    public JLabel selectInputsBatchLabel, selectBatchFolderLabel, inputTextFileLabel;
+    public JPanel singlePanel, batchPanel, singleUpperPanel, singleLowerPanel, batchUpperPanel, batchLowerPanel;
+    public JScrollPane jScrollPane1, jScrollPane2, jScrollPane3;
+    public JTabbedPane jTabbedPane2;
+    public JComboBox studentCombo;
 
+    // End of variables declaration//GEN-END:variables
+    
     public MainFrame() {
         initComponents();
     }
@@ -98,14 +96,14 @@ public class MainFrame extends javax.swing.JFrame {
         selectFile.setText("Select Folder");
         selectFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectFileActionPerformed(evt);
+                ae.selectFileActionPerformed(evt);
             }
         });
 
         selectTxt.setText("Select Inputs");
         selectTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectTxtActionPerformed(evt);
+                ae.selectTxtActionPerformed(evt);
             }
         });
 
@@ -214,14 +212,14 @@ public class MainFrame extends javax.swing.JFrame {
         compileSingle.setText("Compile");
         compileSingle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                compileActionPerformed(evt, "Single");
+                ae.compileActionPerformed(evt, "Single");
             }
         });
 
         runSingle.setText("Run");
         runSingle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                runActionPerformed(evt, "Single");
+                ae.runActionPerformed(evt, "Single");
             }
         });
 
@@ -289,14 +287,14 @@ public class MainFrame extends javax.swing.JFrame {
         folderList.setMinimumSize(new java.awt.Dimension(137, 29));
         folderList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                folderListActionPerformed(evt);
+                ae.folderListActionPerformed(evt);
             }
         });
 
         inputsSelection.setText("Select Inputs");
         inputsSelection.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputsSelectionActionPerformed(evt);
+                ae.inputsSelectionActionPerformed(evt);
             }
         });
 
@@ -320,7 +318,7 @@ public class MainFrame extends javax.swing.JFrame {
         programNameButton.setText("Enter");
         programNameButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                programNameButtonActionPerformed(evt);
+                ae.programNameButtonActionPerformed(evt);
             }
         });
 
@@ -407,14 +405,14 @@ public class MainFrame extends javax.swing.JFrame {
         CompileBatch.setText("CompileBatch");
         CompileBatch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                compileActionPerformed(evt, "Batch");
+                ae.compileActionPerformed(evt, "Batch");
             }
         });
 
         runBatch.setText("RunBatch");
         runBatch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                runActionPerformed(evt, "Batch");
+                ae.runActionPerformed(evt, "Batch");
             }
         });
 
@@ -502,217 +500,7 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void selectFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectFileActionPerformed
-        //Folder chooser
-        chooser = new JFileChooser();
-        chooser.setCurrentDirectory(new java.io.File("."));
-        chooser.setDialogTitle(chooserTitle);
-        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        chooser.setAcceptAllFileFilterUsed(false);
-
-        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION && chooser.getSelectedFile() != null) {
-            folderName = (chooser.getSelectedFile().toString());
-            singleDirectoryField.setText(folderName);
-
-            //Get list of students in folder
-            studentNames = batch.getFolders(folderName);
-            studentCombo.removeAllItems();
-
-            for (int i = 0; i < studentNames.size(); i++) {
-                studentCombo.addItem(studentNames.get(i));
-            }
-        } else {
-            folderName = "";
-            singleDirectoryField.setText("No Selection");
-        }
-
-    }//GEN-LAST:event_selectFileActionPerformed
-
-    private void runActionPerformed(java.awt.event.ActionEvent evt, String event) {//GEN-FIRST:event_runActionPerformed
-
-        if (event.equals("Single")) {
-            studentName = studentCombo.getSelectedItem().toString();
-
-            if (folderName == null || fileName == null || studentName == null) {
-                displayResults.setText("Missing required field");
-            } else {
-                String results = single.getProcessOutput(folderName, fileName, studentName, inputs);
-                displayResults.setText(results);
-            }
-        }
-        if (event.equals("Batch")) {
-
-            if (folderName == null || programName == null) {
-                batchRunText.setText("Required fields missing");
-            } else {
-                //Run batch run
-                batchOutput = batch.getBatchOutput(inputs, folderName, programName);
-                for (int i = 0; i < batchOutput.size(); i++) {
-                    batchRunText.append(studentNames.get(i) + "\n" + batchOutput.get(i) + "\n\n");
-                }
-            }
-        }
-
-    }//GEN-LAST:event_runActionPerformed
-
-    private void compileActionPerformed(java.awt.event.ActionEvent evt, String event) {//GEN-FIRST:event_compileActionPerformed
-
-        if (event.equals("Single")) {
-            fileName = programTextField.getText();
-            int didCompile = 0;
-            if (!fileName.isEmpty()) {
-                didCompile = single.singleCompile(fileName);
-            }
-
-            if (didCompile == 1) {
-                displayResults.setText("Compiled Succesfully");
-            } else {
-                displayResults.setText("File Failed to compile");
-            }
-        }
-        if (event.equals("Batch")) {
-            programName = programNameField.getText();
-
-            if (folderName == null || programName == null) {
-                batchCompileText.setText("Required fields missing");
-            } else {
-                //Run batch compile
-                compileResults = batch.batchCompile(folderName, programName);
-
-                for (int i = 0; i < compileResults.size(); i++) {
-                    batchCompileText.append(compileResults.get(i) + "\n");
-                }
-            }
-        }
-    }//GEN-LAST:event_compileActionPerformed
-
-    private void folderListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_folderListActionPerformed
-
-        //Folder chooser
-        chooser = new JFileChooser();
-        chooser.setCurrentDirectory(new java.io.File("."));
-        chooser.setDialogTitle(chooserTitle);
-        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        chooser.setAcceptAllFileFilterUsed(false);
-
-        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION && chooser.getSelectedFile() != null) {
-            folderName = (chooser.getSelectedFile().toString());
-            directoryField.setText(folderName);
-
-            //Get list of students in folder
-            studentNames = batch.getFolders(folderName);
-            int numberOfStudents = studentNames.size();
-        } else {
-            directoryField.setText("No Selection");
-            folderName = "";
-        }
-
-    }//GEN-LAST:event_folderListActionPerformed
-
-    private void selectTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectTxtActionPerformed
-
-        //Display file chooser for user to select inputs.txt
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setCurrentDirectory(new java.io.File("."));
-        fileChooser.setDialogTitle("Choose a file");
-        singlePanel.add(fileChooser);
-        fileChooser.setVisible(true);
-
-        int returnVal = fileChooser.showOpenDialog(this);
-
-        if (returnVal == JFileChooser.APPROVE_OPTION && fileChooser.getSelectedFile() != null) {
-            inputFile = fileChooser.getSelectedFile().toString();
-            txtDirectory.setText(inputFile);
-        } else {
-            txtDirectory.setText("No Selection");
-            inputFile = "";
-        }
-
-        // This will reference one line at a time
-        String line = null;
-
-        try {
-            FileReader fileReader = new FileReader(inputFile);
-
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-            while ((line = bufferedReader.readLine()) != null) {
-                inputs.add(line);
-            }
-
-            bufferedReader.close();
-        } catch (FileNotFoundException ex) {
-            System.out.println(
-                    "Unable to open file '"
-                    + fileName + "'");
-        } catch (IOException ex) {
-            System.out.println(
-                    "Error reading file '"
-                    + fileName + "'");
-            // Or we could just do this: 
-            // ex.printStackTrace();
-        }
-
-    }//GEN-LAST:event_selectTxtActionPerformed
-
-    private void inputsSelectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputsSelectionActionPerformed
-
-        //Display file chooser for user to select inputs.txt
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setDialogTitle("Choose a file");
-        fileChooser.setCurrentDirectory(new java.io.File("."));
-
-        singlePanel.add(fileChooser);
-        fileChooser.setVisible(true);
-
-        int returnVal = fileChooser.showOpenDialog(this);
-
-        if (returnVal == JFileChooser.APPROVE_OPTION && fileChooser.getSelectedFile() != null) {
-            inputFile = fileChooser.getSelectedFile().toString();
-            inputsField.setText(inputFile);
-        } else {
-            inputsField.setText("No Selection");
-            inputFile = "";
-        }
-
-        // This will reference one line at a time
-        String line = null;
-
-        try {
-            FileReader fileReader = new FileReader(inputFile);
-
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-            while ((line = bufferedReader.readLine()) != null) {
-                System.out.println(Integer.parseInt(line));
-                inputs.add(line);
-            }
-
-            bufferedReader.close();
-        } catch (FileNotFoundException ex) {
-            System.out.println(
-                    "Unable to open file '"
-                    + fileName + "'");
-        } catch (IOException ex) {
-            System.out.println(
-                    "Error reading file '"
-                    + fileName + "'");
-            // Or we could just do this: 
-            // ex.printStackTrace();
-        }
-    }//GEN-LAST:event_inputsSelectionActionPerformed
-
-    private void programNameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_programNameButtonActionPerformed
-
-        System.out.println("Folder Name: " + folderName);
-        System.out.println("Program Name: " + programName);
-        if (folderName != null || !folderName.equals("") || programName != null) {
-            programName = programNameField.getText();
-            batchCompileText.setText("Batch will run all programs named: " + programName + "\nContained within the folder: " + folderName);
-        } else {
-            batchCompileText.setText("Please select a folder first");
-        }
-    }//GEN-LAST:event_programNameButtonActionPerformed
+    
 
     /**
      * @param args the command line arguments
@@ -749,53 +537,5 @@ public class MainFrame extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CompileBatch;
-    private javax.swing.JCheckBox batchArgsCheck;
-    private javax.swing.JTextArea batchCompileText;
-    private javax.swing.JTextArea batchRunText;
-    private javax.swing.JCheckBox batchScannerCheck;
-    private javax.swing.ButtonGroup buttonGroupSingle;
-    private javax.swing.ButtonGroup buttonGroupBatch;
-    private javax.swing.JButton compileSingle;
-    private javax.swing.JTextField directoryField;
-    private javax.swing.JTextArea displayResults;
-    private javax.swing.JButton folderList;
-    private javax.swing.JTextField inputsField;
-    private javax.swing.JButton inputsSelection;
-    private javax.swing.JLabel OutputsLabel;
-    private javax.swing.JLabel javaProgramLabel;
-    private javax.swing.JLabel programNameLabel;
-    private javax.swing.JLabel selectStudentLabel;
-    private javax.swing.JLabel selectInputsSingleLabel;
-    private javax.swing.JLabel folderStudentSubdirectoriesLabel;
-    private javax.swing.JLabel txtFileInputsLabel;
-    private javax.swing.JLabel CompileOutputLabel;
-    private javax.swing.JLabel RunOutputLabel;
-    private javax.swing.JLabel selectInputsBatchLabel;
-    private javax.swing.JLabel selectBatchFolderLabel;
-    private javax.swing.JLabel inputTextFileLabel;
-    private javax.swing.JPanel singlePanel;
-    private javax.swing.JPanel batchPanel;
-    private javax.swing.JPanel singleUpperPanel;
-    private javax.swing.JPanel singleLowerPanel;
-    private javax.swing.JPanel batchUpperPanel;
-    private javax.swing.JPanel batchLowerPanel;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JButton programNameButton;
-    private javax.swing.JTextField programNameField;
-    private javax.swing.JTextField programTextField;
-    private javax.swing.JButton runBatch;
-    private javax.swing.JButton runSingle;
-    private javax.swing.JButton selectFile;
-    private javax.swing.JButton selectTxt;
-    private javax.swing.JCheckBox singleArgsCheck;
-    private javax.swing.JTextField singleDirectoryField;
-    private javax.swing.JCheckBox singleScannerCheck;
-    private javax.swing.JComboBox studentCombo;
-    private javax.swing.JTextField txtDirectory;
-    // End of variables declaration//GEN-END:variables
+
 }
