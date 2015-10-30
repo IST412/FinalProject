@@ -5,8 +5,11 @@
  */
 package compilerprogram;
 
-import java.io.*;
-import javax.swing.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -14,7 +17,7 @@ import javax.swing.*;
  */
 public class ActionEvents extends MainFrame {
     
-    void selectFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectFileActionPerformed
+    private void selectFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectFileActionPerformed
         //Folder chooser
         chooser = new JFileChooser();
         chooser.setCurrentDirectory(new java.io.File("."));
@@ -40,7 +43,7 @@ public class ActionEvents extends MainFrame {
 
     }//GEN-LAST:event_selectFileActionPerformed
 
-    public void runActionPerformed(java.awt.event.ActionEvent evt, String event) {//GEN-FIRST:event_runActionPerformed
+    private void runActionPerformed(java.awt.event.ActionEvent evt, String event) {//GEN-FIRST:event_runActionPerformed
 
         if (event.equals("Single")) {
             studentName = studentCombo.getSelectedItem().toString();
@@ -67,7 +70,7 @@ public class ActionEvents extends MainFrame {
 
     }//GEN-LAST:event_runActionPerformed
 
-    public void compileActionPerformed(java.awt.event.ActionEvent evt, String event) {//GEN-FIRST:event_compileActionPerformed
+    private void compileActionPerformed(java.awt.event.ActionEvent evt, String event) {//GEN-FIRST:event_compileActionPerformed
 
         if (event.equals("Single")) {
             fileName = programTextField.getText();
@@ -98,7 +101,7 @@ public class ActionEvents extends MainFrame {
         }
     }//GEN-LAST:event_compileActionPerformed
 
-    public void folderListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_folderListActionPerformed
+    private void folderListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_folderListActionPerformed
 
         //Folder chooser
         chooser = new JFileChooser();
@@ -113,7 +116,7 @@ public class ActionEvents extends MainFrame {
 
             //Get list of students in folder
             studentNames = batch.getFolders(folderName);
-            //int numberOfStudents = studentNames.size();
+            int numberOfStudents = studentNames.size();
         } else {
             directoryField.setText("No Selection");
             folderName = "";
@@ -121,7 +124,7 @@ public class ActionEvents extends MainFrame {
 
     }//GEN-LAST:event_folderListActionPerformed
 
-    public void selectTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectTxtActionPerformed
+    private void selectTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectTxtActionPerformed
 
         //Display file chooser for user to select inputs.txt
         JFileChooser fileChooser = new JFileChooser();
@@ -167,7 +170,7 @@ public class ActionEvents extends MainFrame {
 
     }//GEN-LAST:event_selectTxtActionPerformed
 
-    public void inputsSelectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputsSelectionActionPerformed
+    private void inputsSelectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputsSelectionActionPerformed
 
         //Display file chooser for user to select inputs.txt
         JFileChooser fileChooser = new JFileChooser();
@@ -209,10 +212,12 @@ public class ActionEvents extends MainFrame {
             System.out.println(
                     "Error reading file '"
                     + fileName + "'");
+            // Or we could just do this: 
+            // ex.printStackTrace();
         }
     }//GEN-LAST:event_inputsSelectionActionPerformed
 
-    public void programNameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_programNameButtonActionPerformed
+    private void programNameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_programNameButtonActionPerformed
 
         System.out.println("Folder Name: " + folderName);
         System.out.println("Program Name: " + programName);
