@@ -134,6 +134,23 @@ public class MainFrame extends javax.swing.JFrame {
         buttonGroupBatch.add(batchArgsCheck);
         buttonGroupBatch.add(batchScannerCheck);
         
+        batchCompileText.setEditable(false);
+        batchRunText.setEditable(false);
+        
+        batchCompileText.setColumns(20);
+        batchRunText.setColumns(20);
+        
+        batchCompileText.setRows(5);
+        batchRunText.setRows(5);
+        
+        singleScannerCheck.setSelected(true);
+        batchScannerCheck.setSelected(true);
+        
+        batchCompileText.setLineWrap(true);
+
+        folderList.setMaximumSize(new Dimension(137, 29));
+        
+        folderList.setMinimumSize(new Dimension(137, 29));
         
         selectFile.addActionListener(new ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,8 +200,12 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        singleScannerCheck.setSelected(true);
-
+        programNameButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                ae.programNameButtonActionPerformed(evt);
+            }
+        });
+        
         GroupLayout singleUpperPanelLayout = new GroupLayout(singleUpperPanel);
         singleUpperPanel.setLayout(singleUpperPanelLayout);
         singleUpperPanelLayout.setHorizontalGroup(
@@ -312,20 +333,6 @@ public class MainFrame extends javax.swing.JFrame {
                         .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-
-
-        folderList.setMaximumSize(new Dimension(137, 29));
-        folderList.setMinimumSize(new Dimension(137, 29));
-
-
-        batchScannerCheck.setSelected(true);
-
-        programNameButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                ae.programNameButtonActionPerformed(evt);
-            }
-        });
-
         GroupLayout batchUpperPanelLayout = new GroupLayout(batchUpperPanel);
         batchUpperPanel.setLayout(batchUpperPanelLayout);
         batchUpperPanelLayout.setHorizontalGroup(
@@ -389,20 +396,7 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addComponent(batchScannerCheck))
                         .addContainerGap())
         );
-
-        batchCompileText.setEditable(false);
-        batchCompileText.setColumns(20);
-        batchCompileText.setLineWrap(true);
-        batchCompileText.setRows(5);
-
-
-        batchRunText.setEditable(false);
-        batchRunText.setColumns(20);
-        batchRunText.setRows(5);
-
-
-
-
+        
         GroupLayout batchLowerPanelLayout = new GroupLayout(batchLowerPanel);
         batchLowerPanel.setLayout(batchLowerPanelLayout);
         batchLowerPanelLayout.setHorizontalGroup(
