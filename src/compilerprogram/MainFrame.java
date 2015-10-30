@@ -214,14 +214,14 @@ public class MainFrame extends javax.swing.JFrame {
         compileSingle.setText("Compile");
         compileSingle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                compileSingleActionPerformed(evt);
+                compileActionPerformed(evt, "Single");
             }
         });
 
         runSingle.setText("Run");
         runSingle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                runSingleActionPerformed(evt);
+                runActionPerformed(evt, "Single");
             }
         });
 
@@ -380,11 +380,11 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addComponent(inputsSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(inputsField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(programNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                              //  .addComponent(programNameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        //  .addComponent(programNameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         )
                         .addGap(31, 31, 31)
                         .addComponent(selectInputsBatchLabel)
-                       // .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        // .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(batchUpperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(batchArgsCheck)
                                 .addComponent(batchScannerCheck))
@@ -407,14 +407,14 @@ public class MainFrame extends javax.swing.JFrame {
         CompileBatch.setText("CompileBatch");
         CompileBatch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CompileBatchActionPerformed(evt);
+                compileActionPerformed(evt, "Batch");
             }
         });
 
         runBatch.setText("RunBatch");
         runBatch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                runBatchActionPerformed(evt);
+                runActionPerformed(evt, "Batch");
             }
         });
 
@@ -528,65 +528,63 @@ public class MainFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_selectFileActionPerformed
 
-    private void compileSingleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compileSingleActionPerformed
+    private void runActionPerformed(java.awt.event.ActionEvent evt, String event) {//GEN-FIRST:event_runActionPerformed
 
-        fileName = programTextField.getText();
-        int didCompile = 0;
-        if (!fileName.isEmpty()) {
-            didCompile = single.singleCompile(fileName);
+        if (event.equals("Single")) {
+            studentName = studentCombo.getSelectedItem().toString();
+
+            if (folderName == null || fileName == null || studentName == null) {
+                displayResults.setText("Missing required field");
+            } else {
+                String results = single.getProcessOutput(folderName, fileName, studentName, inputs);
+                displayResults.setText(results);
+            }
         }
+        if (event.equals("Batch")) {
 
-        if (didCompile == 1) {
-            displayResults.setText("Compiled Succesfully");
-        } else {
-            displayResults.setText("File Failed to compile");
-        }
-
-    }//GEN-LAST:event_compileSingleActionPerformed
-
-    private void runSingleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runSingleActionPerformed
-
-        studentName = studentCombo.getSelectedItem().toString();
-
-        if (folderName == null || fileName == null || studentName == null) {
-            displayResults.setText("Missing required field");
-        } else {
-            String results = single.getProcessOutput(folderName, fileName, studentName, inputs);
-            displayResults.setText(results);
-        }
-
-    }//GEN-LAST:event_runSingleActionPerformed
-
-    private void runBatchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runBatchActionPerformed
-
-        if (folderName == null || programName == null) {
-            batchRunText.setText("Required fields missing");
-        } else {
-            //Run batch run
-            batchOutput = batch.getBatchOutput(inputs, folderName, programName);
-            for (int i = 0; i < batchOutput.size(); i++) {
-                batchRunText.append(studentNames.get(i) + "\n" + batchOutput.get(i) + "\n\n");
+            if (folderName == null || programName == null) {
+                batchRunText.setText("Required fields missing");
+            } else {
+                //Run batch run
+                batchOutput = batch.getBatchOutput(inputs, folderName, programName);
+                for (int i = 0; i < batchOutput.size(); i++) {
+                    batchRunText.append(studentNames.get(i) + "\n" + batchOutput.get(i) + "\n\n");
+                }
             }
         }
 
-    }//GEN-LAST:event_runBatchActionPerformed
+    }//GEN-LAST:event_runActionPerformed
 
-    private void CompileBatchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CompileBatchActionPerformed
+    private void compileActionPerformed(java.awt.event.ActionEvent evt, String event) {//GEN-FIRST:event_compileActionPerformed
 
-        programName = programNameField.getText();
-        
-        if (folderName == null || programName == null) {
-            batchCompileText.setText("Required fields missing");
-        } else {
-            //Run batch compile
-            compileResults = batch.batchCompile(folderName, programName);
+        if (event.equals("Single")) {
+            fileName = programTextField.getText();
+            int didCompile = 0;
+            if (!fileName.isEmpty()) {
+                didCompile = single.singleCompile(fileName);
+            }
 
-            for (int i = 0; i < compileResults.size(); i++) {
-                batchCompileText.append(compileResults.get(i) + "\n");
+            if (didCompile == 1) {
+                displayResults.setText("Compiled Succesfully");
+            } else {
+                displayResults.setText("File Failed to compile");
             }
         }
+        if (event.equals("Batch")) {
+            programName = programNameField.getText();
 
-    }//GEN-LAST:event_CompileBatchActionPerformed
+            if (folderName == null || programName == null) {
+                batchCompileText.setText("Required fields missing");
+            } else {
+                //Run batch compile
+                compileResults = batch.batchCompile(folderName, programName);
+
+                for (int i = 0; i < compileResults.size(); i++) {
+                    batchCompileText.append(compileResults.get(i) + "\n");
+                }
+            }
+        }
+    }//GEN-LAST:event_compileActionPerformed
 
     private void folderListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_folderListActionPerformed
 
@@ -706,8 +704,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void programNameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_programNameButtonActionPerformed
 
-        System.out.println("Folder Name: "+folderName);
-        System.out.println("Program Name: "+programName);
+        System.out.println("Folder Name: " + folderName);
+        System.out.println("Program Name: " + programName);
         if (folderName != null || !folderName.equals("") || programName != null) {
             programName = programNameField.getText();
             batchCompileText.setText("Batch will run all programs named: " + programName + "\nContained within the folder: " + folderName);
