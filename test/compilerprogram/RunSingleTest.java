@@ -5,6 +5,7 @@
  */
 package compilerprogram;
 
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,40 +19,64 @@ import static org.junit.Assert.*;
  */
 public class RunSingleTest {
     
-    String fileName = "";
-    String expResult = "";
-    
-    public RunSingleTest() {
-    }
+    String fileName;
+    int expResult;
+    String folderName;
+    String programName;
+    String studentName;
+    ArrayList<String> inputs = new ArrayList<String>();
     
     @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
+    public static void setupTests()
+    {
+        System.out.println("Starting Tests");
     }
     
     @Before
     public void setUp() {
-        fileName = "/Users/Mazayan/NetBeansProjects/FinalProject/students/fisher/ArrayLoops.java";
-        //expResult = 
+        
+        //fileName needs to be set to the path of a student java file
+        folderName= "C:/Users/Cody/Documents/NetBeansProjects/FinalProject/students";
+        programName = "ArrayLoops";
+        studentName = "straffon";
+        inputs.add("5");
+        inputs.add("2");
+        fileName = "C:/Users/Cody/Documents/NetBeansProjects/FinalProject/students/straffon";
+        expResult = 1;
+        
     }
     
-    @After
-    public void tearDown() {
-    }
-
-    /**
-     * Test of getProcessOutput method, of class RunSingle.
-     */
     @Test
     public void testGetProcessOutput() {
-        System.out.println("getProcessOutput");
-        RunSingle instance = new RunSingle();
-        String expResult = "";
-        //String result = instance.getProcessOutput(fileName);
-       // assertEquals(expResult, result);
+        RunSingle program = new RunSingle();
+        this.setUp();
+        String result = program.getProcessOutput(folderName, programName, studentName, inputs);
+        System.out.println("Test1: result = " + result);
+        assertNotNull(result);
     }
     
+    @Test
+    public void testSingleCompile() {
+        RunSingle program = new RunSingle();
+        this.setUp();
+        int result = program.singleCompile(fileName);
+        System.out.println("Test1: result = " + result);
+        assertEquals(expResult, result);
+    }
+        
+    @After
+    public void teardownTest(){
+        this.fileName = null;
+        System.out.println("Test Finished");
+    }
+    
+    @AfterClass
+    public static void teardownTests()
+    {
+        System.out.println("All Tests Finished");
+    }
+    
+    
 }
+
+
