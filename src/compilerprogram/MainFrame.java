@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package compilerprogram;
 
 import java.io.*;
@@ -10,21 +5,13 @@ import java.util.*;
 import javax.swing.*;
 import java.awt.event.*;
 
-/**
- *
- * @author h_laessig
- */
 public class MainFrame extends JFrame {
 
-    String fileName, programName, folderName, inputFile, studentName, chooserTitle;
-    ArrayList<String> batchOutput;
-    ArrayList<String> studentNames;
-    ArrayList<String> compileResults;
-    ArrayList<String> inputs = new ArrayList<>();
-    JFileChooser chooser;
-    RunBatch batch = new RunBatch();
-    RunSingle single = new RunSingle();
-
+    private final RunBatch batch = new RunBatch();
+    private final RunSingle single = new RunSingle();
+    private JFileChooser chooser;
+    private String fileName, programName, folderName, inputFile, studentName, chooserTitle;
+    private ArrayList<String> compileResults, batchOutput, studentNames, inputs;
     private JButton CompileBatch, compileSingle, folderList, programNameButton, inputsSelection;
     private JButton runBatch, runSingle, selectFile, selectTxt;
     private JCheckBox batchArgsCheck, singleArgsCheck, batchScannerCheck, singleScannerCheck;
@@ -736,5 +723,3 @@ public class MainFrame extends JFrame {
         });
     }                    
 }
-
-
