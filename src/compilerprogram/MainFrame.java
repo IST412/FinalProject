@@ -4,6 +4,8 @@ import java.io.*;
 import java.util.*;
 import javax.swing.*;
 import java.awt.event.*;
+import static java.util.logging.Level.SEVERE;
+import static java.util.logging.Logger.getLogger;
 
 public class MainFrame extends JFrame {
 
@@ -23,9 +25,9 @@ public class MainFrame extends JFrame {
     private JLabel selectInputsBatchLabel, selectBatchFolderLabel, inputTextFileLabel;
     private JPanel singlePanel, batchPanel, singleUpperPanel, singleLowerPanel, batchUpperPanel, batchLowerPanel;
     private JScrollPane singleScrollPane, batchRunScrollPane, batchCompileScrollPane;
-    private JTabbedPane jTabbedPane2;
+    private JTabbedPane tab;
     private JComboBox studentCombo;
-    
+
     public MainFrame() {
         initComponents();
     }
@@ -35,7 +37,7 @@ public class MainFrame extends JFrame {
     private void initComponents() {
         buttonGroupSingle = new ButtonGroup();
         buttonGroupBatch = new ButtonGroup();
-        jTabbedPane2 = new JTabbedPane();
+        tab = new JTabbedPane();
         singlePanel = new JPanel();
         singleUpperPanel = new JPanel();
         selectFile = new JButton();
@@ -80,45 +82,128 @@ public class MainFrame extends JFrame {
         runBatch = new JButton();
         CompileOutputLabel = new JLabel();
         RunOutputLabel = new JLabel();
+        inputs = new ArrayList<>();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         singleUpperPanel.setBorder(BorderFactory.createEtchedBorder());
+        singleLowerPanel.setBorder(BorderFactory.createEtchedBorder());
+        batchUpperPanel.setBorder(BorderFactory.createEtchedBorder());
+        batchLowerPanel.setBorder(BorderFactory.createEtchedBorder());
 
+        CompileOutputLabel.setText("Compiler Output");
+        RunOutputLabel.setText("Run Output");
         selectFile.setText("Select Folder");
+        selectTxt.setText("Select Inputs");
+        singleArgsCheck.setText("ARGS Inputs");
+        singleScannerCheck.setText("Scanner Inputs");
+        selectInputsSingleLabel.setText("Select which inputs the program uses (doesnt work)");
+        txtFileInputsLabel.setText("Select .txt file with inputs");
+        programNameLabel.setText("Enter name of program to be ran");
+        folderStudentSubdirectoriesLabel.setText("Select folder containing student subdirectories");
+        selectStudentLabel.setText("Select student you would like to run program for");
+        compileSingle.setText("Compile");
+        runSingle.setText("Run");
+        folderList.setText("Select Folder");
+        OutputsLabel.setText("Outputs");
+        inputsSelection.setText("Select Inputs");
+        selectInputsBatchLabel.setText("Select which inputs the program uses (doesnt work yet)");
+        batchArgsCheck.setText("ARGS Inputs");
+        batchScannerCheck.setText("Scanner Inputs");
+        selectBatchFolderLabel.setText("Select folder containing batch folders to process");
+        inputTextFileLabel.setText("Select text file containing inputs");
+        javaProgramLabel.setText("Enter name of java program");
+        programNameButton.setText("Enter");
+        CompileBatch.setText("CompileBatch");
+        runBatch.setText("RunBatch");
+        
+        programTextField.setToolTipText("Example: ArrayLoops"); 
+        programTextField.setToolTipText("Example: ArrayLoops");
+
+        singleScannerCheck.setSelected(true);
+        batchScannerCheck.setSelected(true);
+        
+        studentCombo.setModel(new DefaultComboBoxModel(new String[]{"Choose folder first"}));
+
+        singleScrollPane.setViewportView(displayResults);
+        batchCompileScrollPane.setViewportView(batchCompileText);
+        batchRunScrollPane.setViewportView(batchRunText);
+        
+        folderList.setMaximumSize(new java.awt.Dimension(137, 29));
+        folderList.setMinimumSize(new java.awt.Dimension(137, 29));
+        
+        batchCompileText.setEditable(false);
+        batchRunText.setEditable(false);
+        
+        batchCompileText.setColumns(20);
+        batchRunText.setColumns(20);
+          
+        batchCompileText.setRows(5);
+        batchRunText.setRows(5);
+
+        batchCompileText.setLineWrap(true);
+   
+        buttonGroupSingle.add(singleArgsCheck);
+        buttonGroupSingle.add(singleScannerCheck);
+        buttonGroupBatch.add(batchArgsCheck);
+        buttonGroupBatch.add(batchScannerCheck);
+        
+        tab.addTab("Single", singlePanel);
+        tab.addTab("Batch", batchPanel);
+        
         selectFile.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 selectFileActionPerformed(evt);
             }
         });
 
-        selectTxt.setText("Select Inputs");
         selectTxt.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 selectTxtActionPerformed(evt);
             }
         });
+        
+        compileSingle.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                compileActionPerformed(evt, "Single");
+            }
+        });
 
-        buttonGroupSingle.add(singleArgsCheck);
-        singleArgsCheck.setText("ARGS Inputs");
+        runSingle.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                runActionPerformed(evt, "Single");
+            }
+        });
 
-        buttonGroupSingle.add(singleScannerCheck);
-        singleScannerCheck.setSelected(true);
-        singleScannerCheck.setText("Scanner Inputs");
+        folderList.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                folderListActionPerformed(evt);
+            }
+        });
 
-        selectInputsSingleLabel.setText("Select which inputs the program uses (doesnt work)");
+        inputsSelection.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                inputsSelectionActionPerformed(evt);
+            }
+        });
 
-        programTextField.setToolTipText("Example: ArrayLoops");
+        programNameButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                programNameButtonActionPerformed(evt);
+            }
+        });
 
-        folderStudentSubdirectoriesLabel.setText("Select folder containing student subdirectories");
+        CompileBatch.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                compileActionPerformed(evt, "Batch");
+            }
+        });
 
-        txtFileInputsLabel.setText("Select .txt file with inputs");
-
-        programNameLabel.setText("Enter name of program to be ran");
-
-        studentCombo.setModel(new DefaultComboBoxModel(new String[]{"Choose folder first"}));
-
-        selectStudentLabel.setText("Select student you would like to run program for");
+        runBatch.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                runActionPerformed(evt, "Batch");
+            }
+        });
 
         GroupLayout singleUpperPanelLayout = new GroupLayout(singleUpperPanel);
         singleUpperPanel.setLayout(singleUpperPanelLayout);
@@ -194,26 +279,6 @@ public class MainFrame extends JFrame {
                         .addGap(23, 23, 23))
         );
 
-        singleLowerPanel.setBorder(BorderFactory.createEtchedBorder());
-
-        singleScrollPane.setViewportView(displayResults);
-
-        compileSingle.setText("Compile");
-        compileSingle.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                compileActionPerformed(evt, "Single");
-            }
-        });
-
-        runSingle.setText("Run");
-        runSingle.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                runActionPerformed(evt, "Single");
-            }
-        });
-
-        OutputsLabel.setText("Outputs");
-
         GroupLayout singleLowerPanelLayout = new GroupLayout(singleLowerPanel);
         singleLowerPanel.setLayout(singleLowerPanelLayout);
         singleLowerPanelLayout.setHorizontalGroup(
@@ -266,50 +331,6 @@ public class MainFrame extends JFrame {
                         .addComponent(singleLowerPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jTabbedPane2.addTab("Single", singlePanel);
-
-        batchUpperPanel.setBorder(BorderFactory.createEtchedBorder());
-
-        folderList.setText("Select Folder");
-        folderList.setMaximumSize(new java.awt.Dimension(137, 29));
-        folderList.setMinimumSize(new java.awt.Dimension(137, 29));
-        folderList.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                folderListActionPerformed(evt);
-            }
-        });
-
-        inputsSelection.setText("Select Inputs");
-        inputsSelection.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                inputsSelectionActionPerformed(evt);
-            }
-        });
-
-        selectInputsBatchLabel.setText("Select which inputs the program uses (doesnt work yet)");
-
-        buttonGroupBatch.add(batchArgsCheck);
-        batchArgsCheck.setText("ARGS Inputs");
-
-        buttonGroupBatch.add(batchScannerCheck);
-        batchScannerCheck.setSelected(true);
-        batchScannerCheck.setText("Scanner Inputs");
-
-        programTextField.setToolTipText("Example: ArrayLoops");
-
-        selectBatchFolderLabel.setText("Select folder containing batch folders to process");
-
-        inputTextFileLabel.setText("Select text file containing inputs");
-
-        javaProgramLabel.setText("Enter name of java program");
-
-        programNameButton.setText("Enter");
-        programNameButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                programNameButtonActionPerformed(evt);
-            }
-        });
 
         GroupLayout batchUpperPanelLayout = new GroupLayout(batchUpperPanel);
         batchUpperPanel.setLayout(batchUpperPanelLayout);
@@ -378,37 +399,6 @@ public class MainFrame extends JFrame {
                         .addContainerGap())
         );
 
-        batchLowerPanel.setBorder(BorderFactory.createEtchedBorder());
-
-        batchCompileText.setEditable(false);
-        batchCompileText.setColumns(20);
-        batchCompileText.setLineWrap(true);
-        batchCompileText.setRows(5);
-        batchCompileScrollPane.setViewportView(batchCompileText);
-
-        batchRunText.setEditable(false);
-        batchRunText.setColumns(20);
-        batchRunText.setRows(5);
-        batchRunScrollPane.setViewportView(batchRunText);
-
-        CompileBatch.setText("CompileBatch");
-        CompileBatch.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                compileActionPerformed(evt, "Batch");
-            }
-        });
-
-        runBatch.setText("RunBatch");
-        runBatch.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                runActionPerformed(evt, "Batch");
-            }
-        });
-
-        CompileOutputLabel.setText("Compiler Output");
-
-        RunOutputLabel.setText("Run Output");
-
         GroupLayout batchLowerPanelLayout = new GroupLayout(batchLowerPanel);
         batchLowerPanel.setLayout(batchLowerPanelLayout);
         batchLowerPanelLayout.setHorizontalGroup(
@@ -469,27 +459,24 @@ public class MainFrame extends JFrame {
                         .addContainerGap())
         );
 
-        jTabbedPane2.addTab("Batch", batchPanel);
-
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jTabbedPane2))
+                        .addComponent(tab))
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jTabbedPane2))
+                        .addComponent(tab))
         );
-
         pack();
-    }                      
+    }
 
-    private void selectFileActionPerformed(ActionEvent evt) {                                           
+    private void selectFileActionPerformed(ActionEvent evt) {
         //Folder chooser
         chooser = new JFileChooser();
         chooser.setCurrentDirectory(new java.io.File("."));
@@ -512,13 +499,12 @@ public class MainFrame extends JFrame {
             folderName = "";
             singleDirectoryField.setText("No Selection");
         }
-    }                                          
+    }
 
-    private void runActionPerformed(ActionEvent evt, String event) {                                    
+    private void runActionPerformed(ActionEvent evt, String event) {
 
         if (event.equals("Single")) {
             studentName = studentCombo.getSelectedItem().toString();
-
             if (folderName == null || fileName == null || studentName == null) {
                 displayResults.setText("Missing required field");
             } else {
@@ -527,7 +513,6 @@ public class MainFrame extends JFrame {
             }
         }
         if (event.equals("Batch")) {
-
             if (folderName == null || programName == null) {
                 batchRunText.setText("Required fields missing");
             } else {
@@ -538,10 +523,9 @@ public class MainFrame extends JFrame {
                 }
             }
         }
-    }                                   
+    }
 
-    private void compileActionPerformed(ActionEvent evt, String event) {                                        
-
+    private void compileActionPerformed(ActionEvent evt, String event) {
         if (event.equals("Single")) {
             fileName = programTextField.getText();
             int didCompile = 0;
@@ -569,10 +553,9 @@ public class MainFrame extends JFrame {
                 }
             }
         }
-    }                                       
+    }
 
-    private void folderListActionPerformed(ActionEvent evt) {                                           
-
+    private void folderListActionPerformed(ActionEvent evt) {
         //Folder chooser
         chooser = new JFileChooser();
         chooser.setCurrentDirectory(new java.io.File("."));
@@ -591,10 +574,9 @@ public class MainFrame extends JFrame {
             directoryField.setText("No Selection");
             folderName = "";
         }
+    }
 
-    }                                          
-
-    private void selectTxtActionPerformed(ActionEvent evt) {                                          
+    private void selectTxtActionPerformed(ActionEvent evt) {
         //Display file chooser for user to select inputs.txt
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setCurrentDirectory(new java.io.File("."));
@@ -636,9 +618,9 @@ public class MainFrame extends JFrame {
             // Or we could just do this: 
             // ex.printStackTrace();
         }
-    }                                         
+    }
 
-    private void inputsSelectionActionPerformed(ActionEvent evt) {                                                
+    private void inputsSelectionActionPerformed(ActionEvent evt) {
 
         //Display file chooser for user to select inputs.txt
         JFileChooser fileChooser = new JFileChooser();
@@ -683,9 +665,9 @@ public class MainFrame extends JFrame {
             // Or we could just do this: 
             // ex.printStackTrace();
         }
-    }                                               
+    }
 
-    private void programNameButtonActionPerformed(ActionEvent evt) {                                                  
+    private void programNameButtonActionPerformed(ActionEvent evt) {
 
         System.out.println("Folder Name: " + folderName);
         System.out.println("Program Name: " + programName);
@@ -695,7 +677,7 @@ public class MainFrame extends JFrame {
         } else {
             batchCompileText.setText("Please select a folder first");
         }
-    }                                                 
+    }
 
     public static void main(String args[]) {
 
@@ -707,13 +689,13 @@ public class MainFrame extends JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            getLogger(MainFrame.class.getName()).log(SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            getLogger(MainFrame.class.getName()).log(SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            getLogger(MainFrame.class.getName()).log(SEVERE, null, ex);
         } catch (UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            getLogger(MainFrame.class.getName()).log(SEVERE, null, ex);
         }
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -721,5 +703,5 @@ public class MainFrame extends JFrame {
                 new MainFrame().setVisible(true);
             }
         });
-    }                    
+    }
 }
